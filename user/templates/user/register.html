@@ -1,0 +1,44 @@
+{% extends "user/index.html" %}
+{% load crispy_forms_tags %}
+{% block start %}
+
+<div class="container">
+    <div class="register-form">
+        <h2 class="text-center">Sign Up</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" required class="form-control" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" required class="form-control" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="phone_no">Phone Number:</label>
+                <input type="text" name="phone_no" required class="form-control" placeholder="Enter phone number">
+            </div>
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name" required class="form-control" placeholder="Enter first name">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name" required class="form-control" placeholder="Enter last name">
+            </div>
+            <div class="form-group">
+                <label for="password1">Password:</label>
+                <input type="password" name="password1" required class="form-control" placeholder="Enter password">
+            </div>
+            <div class="form-group">
+                <label for="password2">Confirm Password:</label>
+                <input type="password" name="password2" required class="form-control" placeholder="Confirm password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+            <p class="text-center">Already have an account? <a href="{% url 'login' %}" style="text-decoration: none; color: blue;">Login</a></p>
+        </form>
+    </div>
+</div>
+
+{% endblock start %}

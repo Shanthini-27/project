@@ -1,0 +1,27 @@
+{% extends "user/index.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block start %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'index.css' %}" />
+
+<div class="content-section col-md-4 col-md-offset-4">
+    <div class="login-form">
+        <h2 class="text-center">Login</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" required class="form-control" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" required class="form-control" placeholder="Enter password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <p class="text-center">Don't have an account? <a href="{% url 'register' %}" style="text-decoration: none; color: blue;">Sign up</a></p>
+        </form>
+    </div>
+</div>
+
+{% endblock start %}
